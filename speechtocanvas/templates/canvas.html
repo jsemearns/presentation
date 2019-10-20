@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <style>
+            .container {
+                margin: 0 auto;
+                width: 960px;
+                height: 200px;
+            }
+
+            canvas {
+                border: 1px solid black;
+                position: absolute;
+                top: 50%;
+                margin-top: -300px;
+            }
+
+            body {
+                background-color: black;
+            }
+        </style>
+        <body>
+            {% load staticfiles %}
+            <div class="container">
+                <canvas id="canvas" width="960" height="600"></canvas>
+            </div>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+            <script type="text/javascript" src="{% static 'js/snake.js' %}"></script>
+        </body>
+    </head>
+</html>
