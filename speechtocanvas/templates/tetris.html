@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Tetris</title>
+        <style media="screen">
+            body {
+                background-color:#737373;
+            }
+            * {
+                margin:0;
+                padding:0;
+            }
+            .canvas_wrap {
+                display: block;
+                margin:0 auto;
+                padding-top: 200px;
+            }
+            .canvas_wrap > * {
+                display: block;
+                margin:0 auto;
+            }
+            .canvas_wrap > button{
+                font-size:30px;
+                font-weight:bold;
+                border:none;
+                background-color:#737373;
+                color:#000000;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="canvas_wrap">
+            {% load staticfiles %}
+            <canvas id="tetris" width="240" height="400"></canvas>
+            <button type="button" id="start_game">Start</button>
+            <script type="text/javascript" src="{% static 'js/tetris.js' %}"></script>
+        </div>
+    </body>
+</html>
