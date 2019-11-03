@@ -1,17 +1,23 @@
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
-from speechtocanvas import views
+from bangon import views
 
 admin.autodiscover()
 
 urlpatterns = patterns(
     "",
     # Examples:
-    # url(r'^$', 'jscanvas.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-    url(r"^admin/", include(admin.site.urls)),
-    url(r"^$", views.HomePageView.as_view(), name="home"),
-    url(r"^snake/", views.SnakeTemplateView.as_view(), name="snake"),
-    url(r"^tetris/", views.TetrisTemplateView.as_view(), name="tetris"),
+    url(r"^justinadmin/", include(admin.site.urls)),
+    url(r"^$", views.BangonHomePageView.as_view(), name="index"),
+    url(
+        r"^areas/(?P<city>[\w-]+)/$",
+        views.BangonAreaTemplateView.as_view(),
+        name="city_areas",
+    ),
+    url(
+        r"^area_detail/(?P<area>[\w-]+)/$",
+        views.BangonAreaDetailTemplateView.as_view(),
+        name="area_detail",
+    ),
 )

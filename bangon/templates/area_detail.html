@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h1>{{ area.name }} area details</h1>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Population Estimate: {{ area.population }}</li>
+        <li class="list-group-item">Accessibility: {{ area.accessibility }}</li>
+        <li class="list-group-item">
+            Additional Information: <p>{{ area.other_information }}</p>
+        </li>
+    </ul>
+
+    <h2 class="mt-5">Items needed</h2>
+        <ul class="list-group list-group-flush">
+            {% for item in items_needed %}
+                <li class="list-group-item">{{ item.name }}</li>
+            {% endfor %}
+        </ul>
+    {% if donations %}
+        <h2 class="mt-5">Donations</h2>
+            {% for donation in donations %}
+                <h6>Donated by: {{ donation.donated_by }}<span class="badge">{{ donation.date }}</span></h6>
+                <ul class="list-group list-group-flush mb-5">
+                    {% for item in donation.items.all %}
+                            <li class="list-group-item">{{ item.name }} {% if item %} x {{ item.count }} {{ item.unit }} {% endif %}</li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+    {% endif %}
+{% endblock %}
