@@ -6,7 +6,7 @@
         <li class="list-group-item">Population Estimate: {{ area.population }}</li>
         <li class="list-group-item">Accessibility: {{ area.accessibility }}</li>
         <li class="list-group-item">
-            Additional Information: <p>{{ area.other_information }}</p>
+            Additional Information: {% if area.other_information %}<p>{{ area.other_information }}</p>{% else %}None{% endif %}
         </li>
     </ul>
 
